@@ -1,0 +1,58 @@
+run:
+APPEND 5  
+[ 5 ]
+
+APPEND 20
+[ 5 20 ]
+
+APPEND 12
+[ 5 20 12 ]
+
+APPEND 37
+[ 5 20 12 37 ]
+
+ADD 3 7
+[ 5 20 7 12 37 ]
+
+ADD 1 19
+[ 19 5 20 7 12 37 ]
+
+DELETE 3
+[ 19 5 7 12 37 ]
+
+DELETE 1 
+[ 5 7 12 37 ]
+
+ADD 1 44
+[ 44 5 7 12 37 ]
+
+ADD 2 22
+[ 44 22 5 7 12 37 ]
+
+DELETE 6
+[ 44 22 5 7 12 ]
+
+SWAP 3 5
+[ 44 22 12 7 5 ]
+
+REVERSE
+[ 5 7 12 22 44 ]
+
+SWAP 1 3
+[ 12 7 5 22 44 ]
+
+SWAP 3 4
+[ 12 7 22 5 44 ]
+
+SWAP 2 2
+[ 12 7 22 5 44 ]
+
+CLEAR
+[ ]
+
+REVERSE
+[ ]
+
+
+
+BUILD SUCCESSFUL (total time: 1 second)

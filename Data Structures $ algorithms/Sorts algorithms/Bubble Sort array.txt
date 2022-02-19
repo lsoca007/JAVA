@@ -1,0 +1,47 @@
+
+import java.util.Scanner;
+import javax.swing.JOptionPane;
+
+/**
+ *
+ * @author luisd
+ */
+public class BubbleSort {
+
+    
+    public static void main(String[] args) {
+        
+        Scanner keyboard = new Scanner (System.in);
+        int array[] , count;
+        
+        count = Integer.parseInt(JOptionPane.showInputDialog("Enter the number "
+                + "of elements: "));
+        
+        array = new int [count];
+        
+        for (int i =0; i< count; i++) {
+            System.out.print((i+1)+ " Enter an element: ");
+            array[i]= keyboard.nextInt();   
+        }
+        
+        // Bubble Sort     
+        for (int i=0; i< count-1; i++){
+            for(int j = 0; i < count -1; i++){
+                if (array[j] > array[j+1]){ // if actual number is greater than next one 
+                    int temp = array[j];    // store actual number in a temp
+                    array[j]= array[j+1];   //store next number in the actual position 
+                    array[j+1]= temp;       // store  actual number (temp) in the nect position
+                    
+                }             
+            }          
+        }
+        
+        System.out.println("Bubble Sort result: ");
+        for (int i = 0; i < count; i++) {
+            System.out.println(array[i]);
+            
+        }
+        
+    }
+    
+}

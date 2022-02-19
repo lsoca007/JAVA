@@ -1,0 +1,2 @@
+public int compareTo(Object o){}
+{return key.compareTo(((OrderedKeyValue)o).key);}

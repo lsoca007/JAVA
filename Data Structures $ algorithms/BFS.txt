@@ -1,0 +1,66 @@
+package com.company;
+
+import java.util.HashMap;
+import java.util.HashSet;
+import java.util.LinkedList;
+
+public class Graph {
+
+    private HashMap<Integer, Node> nodeLookup = new HashMap<Integer, Node>();
+
+    public static class Node {
+        private int id;
+        LinkedList <Node> adjacent = new LinkedList<Node>(); // hold all the node adjacent to the node
+
+        private Node (int id)
+        {
+            this.id = id;
+        }
+    }
+
+    public void addNode(int id) {
+        nodeLookup.put(id, new Node(id));
+    }
+
+    private Node getNode (int id)
+    {
+        return nodeLookup.get(id);
+    }
+
+    // create the edges
+    public void addEdge (int source, int destination) {
+        Node s = getNode(source);
+        Node d = getNode(destination);
+        s.adjacent.add(d);
+    }
+    
+
+    public boolean hasPathBFS (Node source, Node destination ) {
+
+        LinkedList<Node>  nextToVisit = new LinkedList<Node>(); // node to visit next
+        HashSet<Integer> visited = new HashSet<Integer>(); // represent all already visited
+        nextToVisit.add(source); // first visit the source
+
+        while (!nextToVisit.isEmpty())
+        {
+            Node node = nextToVisit.remove(); // hold next to visit node and removed it form the list
+
+            if (node == destination) // if node is same as destination, Done!
+            {
+                return true;
+            }
+            if (visited.contains((node.id))) // check if node is already visited
+            {
+                continue; // skip value (the rest of the code, a go to the next value)
+            }
+            visited.add(node.id); // add node to the visited list
+
+            for (Node child : node.adjacent) // add adjacent child to next to visit
+            {
+                nextToVisit.add(child);
+            }
+        }
+        return false;
+    }
+    
+}
